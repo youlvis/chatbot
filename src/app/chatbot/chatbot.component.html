@@ -1,0 +1,12 @@
+<div id="chat-container">
+    <div id="messages">
+        <div *ngFor="let message of chatService.getConversation()">
+            <div [ngClass]="message.type">{{ message.message }}</div>
+        </div>
+    </div>
+    <div id="input-container">
+        <input [(ngModel)]="userInput" placeholder="Escribe tu mensaje..." (keyup.enter)="sendMessage()">
+        <button class="send" (click)="sendMessage()">Enviar</button>
+        <button class="clear"  (click)="clearConversation()">Limpiar Conversación</button>
+    </div>
+</div>
